@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.body {
-    background-color: black;
-}
-
 .background {
     position: relative;
     display: block;
@@ -13,4 +9,17 @@
     left: 0;
     z-index: 3;
     
+}
+
+#particle-custom {
+    width: 100%;
+    height: 500px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
 }

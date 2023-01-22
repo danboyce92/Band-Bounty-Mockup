@@ -3,8 +3,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { auth } from './firebase/firebase';
-import LandingPage from './components/LandingPage';
+import LandingPage from './components/LandingPage/LandingPage';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 // import Route from './components/Route';
@@ -25,7 +26,10 @@ function App() {
   return (
     <div className="App relative bg-gray-900 w-full h-full">
       <BrowserRouter>
+
       <NavBar user={user}/>
+
+      <div className="min-h-[95vh] divide-y-4 divide flex flex-col">
       <Routes>
         
         <Route path="/signin" element={<SignIn />} />
@@ -39,6 +43,11 @@ function App() {
         <Route path="/venues" element={<Venues />} />
           
       </Routes>
+      
+      <div className='mt-auto'>
+      <Footer />
+      </div>
+      </div>
       </BrowserRouter>
     </div>
   )

@@ -1,16 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LandingLogo from '../bandbountylogo2.png';
-import LivePic from '../gig2.jpg';
-import LivePic2 from '../gig4.webp';
-import '../index.css'
-import Particle from "./Particle";
-import ParticleTwo from "./ParticleTwo";
-import FeatureSection from "./FeatureSection";
+import LivePic from '../../gig2.jpg';
+import LivePic2 from '../../gig4.webp';
 
-
-const LandingPage = ({ user }) => {
-
+const Divider = ({ user }) => {
 
     let signupLinkTo;
     let signupLinkClass;
@@ -24,36 +17,8 @@ const LandingPage = ({ user }) => {
     }
 
     return (
-        <div className="container relative mx-auto ">
-            {/* Hero section */}
-            <div className="h-screen  bg-[url('../gig.jpg')] bg-cover bg-no-repeat bg-bottom">
-                <div className="h-full w-full bg-gray-900 top-0 left-0 opacity-90 z-1  grid grid-rows-6 grid-cols-6 gap-4">
-                    <span className="relative col-span-3 col-start-2 row-start-2 flex text-xl justify-items-center line text-gray-400 leading-normal text-[64px]">Welcome to</span>
-
-                    <div className="h-full w-full top-0 left-0  col-span-4 col-start-2 row-start-3">
-                    <img height="fill" width="fill" src={LandingLogo} alt="bb logo" />
-                    </div>
-                
-                    <div className="h-full w-full top-0 left-0 col-span-2 row-span-2 col-start-4 row-start-4 text-gray-400 text-[42px] text-center">
-                        <br/>
-                        The internet's first crowd sourcing live event coordinating platform
-                    </div>
-                
-                
-                </div>
-            </div>
-
-
-
-            <div className="relative">
-                <Particle />
-            </div>
-            
-
-            <div>
-                {/* Information divider section */}
-
-                <div className="h-96 w-full bg-gray-900 grid grid-rows-7 grid-cols-10 gap-4 mt-6">
+        <div>
+                            <div className="h-96 w-full bg-gray-900 grid grid-rows-7 grid-cols-10 gap-4 mt-6">
                     <div className="h-full w-full col-span-5 row-span-6 col-start-1 row-start-1">
                         <div className="h-full w-full bg-gray-900 top-0 left-0 opacity-50 z-5">
                         <img src={LivePic} alt="concert" className="border-8 border-double rounded-lg border-slate-800" />
@@ -104,20 +69,8 @@ const LandingPage = ({ user }) => {
                     </div>
 
                 </div>
-
-            </div>
-
-            <div className="mt-40 mb-12 pt-24 h-full w-full">
-                <ParticleTwo />
-            </div>
-
-            <div>
-                <FeatureSection />
-
-            </div>
-
         </div>
     )
 }
 
-export default LandingPage;
+export default Divider;

@@ -19,7 +19,6 @@ function App() {
 
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
-      console.log(user)
     })
 }, [user])
 
@@ -33,7 +32,7 @@ function App() {
         
         <Route path="/signup" element={<SignUp />} />
         
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage user={user}/>} />
           
         <Route path="/livebounties" element={<LiveBounties />} />
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router";
@@ -7,8 +7,13 @@ const SignUp = () => {
 
     const [ registerEmail, setRegisterEmail ] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
+    const [errorDisplay, setErrorDisplay] = useState('')
 
     const navigate = useNavigate();
+
+
+
+
 
     const registerButton = async (e) => {
         try {
@@ -21,7 +26,8 @@ const SignUp = () => {
                 navigate('/livebounties')
     
             } catch (error) {
-                console.log(error.message);
+
+                setErrorDisplay(error.message.slice(10));
             } 
     };
 
@@ -32,6 +38,7 @@ const SignUp = () => {
             <div>
               <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Register your account</h2>
             </div>
+            <div className="text-red-500">{errorDisplay}</div>
             <form className="mt-8 space-y-6">
               
               <div className="-space-y-px rounded-md shadow-sm">

@@ -10,6 +10,7 @@ const SignIn = () => {
 
     const [ loginEmail, setLoginEmail ] = useState('');
     const [ loginPassword, setLoginPassword ] = useState('');
+    const [errorDisplay, setErrorDisplay] = useState('')
 
     const navigate = useNavigate();
 
@@ -25,7 +26,7 @@ const SignIn = () => {
 
 
             } catch (error) {
-                console.log(error.message);
+              setErrorDisplay(error.message.slice(10));
             }
 
 
@@ -41,6 +42,7 @@ const SignIn = () => {
         Or 
         <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-500"> sign up here for free</Link>
       </p>
+      <div className="text-red-500">{errorDisplay}</div>
     </div>
     <form className="mt-8 space-y-6">
       <div className="-space-y-px rounded-md shadow-sm">

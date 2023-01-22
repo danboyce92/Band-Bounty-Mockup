@@ -6,10 +6,22 @@ import LivePic2 from '../gig4.webp';
 import '../index.css'
 import Particle from "./Particle";
 import ParticleTwo from "./ParticleTwo";
+import FeatureSection from "./FeatureSection";
 
 
-const LandingPage = () => {
+const LandingPage = ({ user }) => {
 
+
+    let signupLinkTo;
+    let signupLinkClass;
+
+    if(!user) {
+        signupLinkTo = '/signup'
+        signupLinkClass = 'font-medium text-indigo-600 hover:text-indigo-500'
+    } else {
+        signupLinkTo = ''
+        signupLinkClass = ''
+    }
 
     return (
         <div className="container relative mx-auto ">
@@ -51,7 +63,7 @@ const LandingPage = () => {
 
                     <div className="col-span-3 row-span-6 col-start-7 divide-y-2 divide-solid divide-gray-400 my-auto">
                         <div className=" col-span-3 col-start-6 row-start-1 row-span-2 text-[1.5rem] text-white text-center mb-4">
-                            <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">Sign up here</Link> and start the bounty for your favourite artists today
+                            <Link to={signupLinkTo} className={signupLinkClass}>Sign up here</Link> and launch the bounty for your favourite artists today
                         </div>
 
                         <div className="col-span-3 col-start-7 row-start-3 row-span-2 text-[1.5rem] text-white text-center mb-4">
@@ -95,16 +107,14 @@ const LandingPage = () => {
 
             </div>
 
-            <div className="my-32 relative h-full w-full">
+            <div className="mt-40 mb-12 pt-24 h-full w-full">
                 <ParticleTwo />
             </div>
 
             <div>
-
+                <FeatureSection />
 
             </div>
-
-
 
         </div>
     )

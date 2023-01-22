@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import Contact from './components/Contact';
 // import Route from './components/Route';
 import LiveBounties from './components/LiveBounties';
 import Venues from './components/Venues';
@@ -30,23 +31,25 @@ function App() {
       <NavBar user={user}/>
 
       <div className="min-h-[95vh] divide-y-4 divide flex flex-col">
-      <Routes>
-        
-        <Route path="/signin" element={<SignIn />} />
-        
-        <Route path="/signup" element={<SignUp />} />
-        
-        <Route path="/" element={<LandingPage user={user}/>} />
+        <Routes>
           
-        <Route path="/livebounties" element={<LiveBounties />} />
+          <Route path="/signin" element={<SignIn />} />
+          
+          <Route path="/signup" element={<SignUp />} />
+          
+          <Route path="/" element={<LandingPage user={user}/>} />
+            
+          <Route path="/livebounties" element={<LiveBounties />} />
 
-        <Route path="/venues" element={<Venues />} />
-          
-      </Routes>
-      
-      <div className='mt-auto'>
-      <Footer />
-      </div>
+          <Route path="/venues" element={<Venues />} />
+
+          <Route path="/contact" element={<Contact />} />
+            
+        </Routes>
+        
+        <div className='mt-auto'>
+        <Footer />
+        </div>
       </div>
       </BrowserRouter>
     </div>

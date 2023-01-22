@@ -16,7 +16,7 @@ const LandingPage = ({ user }) => {
 
     return (
         <div className="container relative mx-auto ">
-            {/* Hero section */}
+
             <Hero />
 
             <div className="relative">

@@ -13,7 +13,7 @@ const SignUp = () => {
     const registerButton = async (e) => {
         try {
           e.preventDefault();
-            const user = await createUserWithEmailAndPassword(
+            await createUserWithEmailAndPassword(
                 auth,
                 registerEmail,
                 registerPassword

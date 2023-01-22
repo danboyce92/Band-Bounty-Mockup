@@ -16,7 +16,7 @@ const SignIn = () => {
     const loginButton = async (e) => {
         try {
             e.preventDefault();
-            const user = await signInWithEmailAndPassword(
+            await signInWithEmailAndPassword(
                 auth,
                 loginEmail,
                 loginPassword

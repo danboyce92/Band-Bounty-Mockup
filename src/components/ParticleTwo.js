@@ -4,7 +4,7 @@ import { loadFull } from 'tsparticles';
 
 import React from 'react';
 
-const Particle = () => {
+const ParticleTwo = () => {
 
     const particlesInit = useCallback(async engine => {
         console.log(engine);
@@ -22,7 +22,7 @@ const Particle = () => {
     return (
         <div>
             <Particles 
-            id="tsparticles-two" 
+            id="tsparticles" 
             init={particlesInit} 
             loaded={particlesLoaded} 
             options={{
@@ -108,4 +108,4 @@ const Particle = () => {
     )
 }
 
-export default Particle;
+export default ParticleTwo;

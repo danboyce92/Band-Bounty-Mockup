@@ -23,8 +23,6 @@ function App() {
     })
 }, [user])
 
-  const background = ''  
-
   return (
     <div className="App relative bg-gray-900 w-full h-full">
       <BrowserRouter>

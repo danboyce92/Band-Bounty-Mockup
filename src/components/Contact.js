@@ -1,11 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import Dropdown from "./Dropdown";
+import '../index.css'
 
 const Contact = () => {
 
+    const [selection, setSelection] = useState(null)
+
+    const options = [
+        {
+            label: 'Venue', value: 'venue'
+        },
+        {
+            label: 'Other', value: 'other'
+        }
+    ];
+
+    const handleSelect = (option) => {
+        setSelection(option)
+    };
+
+
+
     return (
         <div>
-            <div className="w-7/12 mx-auto mt-24 h-96 grid grid-rows-7 grid-cols-10 gap-4 bg-gray-200">
-                <span className="col-start-5 col-span-2 row-span-1 text-center mt-2 text-[32px]">Contact us</span>
+            <div className="w-7/12 mx-auto mt-24 h-full  grid grid-rows-6 grid-cols-10 gap-4 bg-gray-200 rounded-md py-4">
+                <span className="col-start-5 col-span-2 row-span-1 text-center mt-2 text-[32px] font-bold">Contact us</span>
+                    <form className="col-start-4 row-start-2 col-span-4 row-span-5">
+                    <div className="col-start-4 row-start-2 row-span-1">
+                    <label className="mx-auto">Full Name</label>
+                    <input placeholder="Enter your name here.." type="text" size="45" className="py-2 mr-2 rounded-md text-center" />
+                    </div>
+                    <div className="col-start-4 row-start-3">
+                    <label>Reason</label>
+                    <Dropdown options={options} value={selection} onChange={handleSelect}/>
+                    </div>
+                    <div className="col-start-4 row-start-4 row-span-3">
+                        <label>Message</label>
+                        <textarea id="text-area" type="text" placeholder="Enter message here.." className="rounded-md text-center" />
+                    </div>
+                    </form>
+                    <button className="col-start-8 row-start-6 col-span-2 bg-indigo-600 rounded-xl text-white m-auto px-8 py-3">Send</button>
+            
             </div>
         </div>
     )

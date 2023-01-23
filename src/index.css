@@ -11,6 +11,12 @@
     
 }
 
+#text-area {
+    resize: none;
+    height: 12rem;
+    width: 23rem;
+}
+
 #particle-custom {
     width: 100%;
     height: 500px;

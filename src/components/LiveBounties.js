@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { collection, onSnapshot  } from "firebase/firestore";
 import { db } from "../firebase/firebase";
+import { useDispatch } from "react-redux";
+import { toggleModal } from "../store";
 
 import Timer from "./Timer";
+import Modal from "./Modal";
+import Button from "./Button";
+import ModalCreate from "./ModalCreate";
 
 const LiveBounties = () => {
 
-    const [ bounties, setBounties ] = useState([]);
+    const dispatch = useDispatch();
 
+    const [ bounties, setBounties ] = useState([]);
+    const [ toggleCreateModal, setToggleCreateModal ] = useState(false)
 
 
     useEffect(() => {
@@ -16,6 +23,36 @@ const LiveBounties = () => {
         });
         return unsub
     }, [])
+
+
+    // const handleClose = () => {
+    //     setToggleCreateModal(false);
+    // }
+
+    // const actionBar = <div>
+    //     <Button onClick={handleClose} primary rounded className="px-6 py-2">Confirm</Button>
+    //     </div>
+
+    // const modalCreate = <Modal actionBar={actionBar} onClose={handleClose}>
+    //             <>
+    //                 <form className="grid grid-cols-6 grid-rows-6 h-full">
+    //                     <div className="col-start-1 col-span-3 row-start-1 row-span-6 border-2 p-6 text-center">
+    //                     Until the artist confirms the event, the bounty target will be set to $10,000. <hr/> <br/>
+    //                     Each bounty will be given 90 days to be confirmed by the artist. <hr/> <br/>
+    //                     After a bounty has been confirmed it will be given a maximum of 90 more days to reach it's target. <hr/> <br/>
+    //                     If the bounty expires, donors will be refunded what they contributed. <hr/> <br/> 
+    //                     Start a bounty wherever you wish. If interest exists our team will try to locate a suitable venue.
+    //                     </div>
+    //                     <label className="ml-4 col-start-4 mt-8">Artist</label>
+    //                     <input className="mx-4 row-start-2 col-start-4  col-span-2 pl-4 py- border-2 border-gray-500 focus:border-black h-3/5" type="text" placeholder="Enter Artist name here.." />
+                    
+    //                     <label className="ml-4 col-start-4 row-start-3 mt-8">City</label>
+    //                     <input className="mx-4 row-start-4 col-start-4 col-span-2 pl-4 border-2 border-gray-500 focus:border-black h-3/5" type="text" placeholder="Enter City here.." />
+                        
+    //                 </form>
+    //             </>
+    //             </Modal>
+
 
     return (
         <div>
@@ -52,7 +89,9 @@ const LiveBounties = () => {
             }
 
 
-            <button className="bg-orange-400 right-4 float-right mr-14 py-4 px-8 rounded-xl font-medium hover:bg-orange-200">Create Bounty</button>
+            <button onClick={() => {dispatch(toggleModal(true))}} className="bg-orange-400 right-4 float-right mr-14 py-4 px-8 rounded-xl font-medium hover:bg-orange-200">Create Bounty</button>
+
+            <ModalCreate />
 
 
         </div>

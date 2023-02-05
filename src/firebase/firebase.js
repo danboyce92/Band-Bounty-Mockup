@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getDatabase, ref, onValue, set } from 'firebase/database';
+import { getDatabase, ref, onValue, set, get, child } from 'firebase/database';
 import {
   getFirestore,
   collection,
@@ -26,60 +26,96 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-const realtimeDb = getDatabase(app);
+export const realtimeDb = getDatabase(app);
+
+export const dbRef = ref(getDatabase(app));
 
 //Create Bounty without id
-export const createBounty = async (artist, city) => {
-  const now = new Date();
-  const timestamp = now.getTime() / 1000;
-  const ninetyDays = 7776000;
-  const expirationTime = timestamp + ninetyDays;
+// export const createBounty = async (artist, city) => {
+//   const now = new Date();
+//   const timestamp = now.getTime() / 1000;
+//   const ninetyDays = 7776000;
+//   const expirationTime = timestamp + ninetyDays;
 
-  const docRef = await addDoc(collection(db, 'Bounties'), {
-    artist,
-    city,
-    funds: '$0',
-    target: '$10000',
-    expiration: expirationTime,
-  });
-  console.log('Document written with ID: ', docRef.id);
-};
+//   const docRef = await addDoc(collection(db, 'Bounties'), {
+//     artist,
+//     city,
+//     funds: '$0',
+//     target: '$10000',
+//     expiration: expirationTime,
+//   });
+//   console.log('Document written with ID: ', docRef.id);
+// };
 
 //Create Bounty with id
-export const createBountyId = async (artist, city) => {
-  const now = new Date();
-  const timestamp = now.getTime() / 1000;
-  const ninetyDays = 7776000;
-  const expirationTime = timestamp + ninetyDays;
 
-  const newBountyId = 1;
+const now = new Date();
+const timestamp = now.getTime() / 1000;
+const ninetyDays = 7776000;
+const twentyEightDays = 2419200;
+const twoDays = 172800;
+const expirationTime = timestamp + twoDays;
 
-  const docRef = await setDoc(doc(db, 'Bounties', { newBountyId }), {
-    artist,
-    city,
-    funds: '$0',
-    target: '$10000',
-    expiration: expirationTime,
-  });
-  console.log('Document written with ID: ', docRef.id);
-};
+// let data;
+
+// export const createBountyId = async (artist, city, bountyNumber) => {
+//   //Insert val snapshot here and connect newBountyId to it
+
+//   const numberRef = ref(db, 'BountyNumber');
+//   onValue(numberRef, (snapshot) => {
+//     data = snapshot.val();
+//   });
+
+//   const docRef = await setDoc(doc(db, 'Bounties', bountyNumber), {
+//     artist,
+//     city,
+//     funds: '$0',
+//     target: '$10000',
+//     expiration: expirationTime,
+//   });
+// };
 
 //Reading Bounty number
-const numberRef = ref(realtimeDb, 'BountyNumber');
-onValue(numberRef, (snapshot) => {
-  const data = snapshot.val();
-});
+// const numberRef = ref(realtimeDb, 'BountyNumber');
+// onValue(numberRef, (snapshot) => {
+//   const data = snapshot.val();
+// });
+
+//Increments Id
+function writeNewId(bounty) {
+  set(ref(realtimeDb, 'BountyNumber'), {
+    Bounty: bounty,
+  });
+}
 
 //Writing Bounty number
 export function updateBountyNumber() {
-  let data;
-
   const numberRef = ref(realtimeDb, 'BountyNumber');
   onValue(numberRef, (snapshot) => {
-    data = snapshot.val();
+    return snapshot.val();
   });
 
-  set(ref(db, 'BountyNumber'), {
-    BountyNumber: data + 1,
-  });
+  writeNewId(getBountyNumber().Bounty + 1);
 }
+
+//Get bountyNumber
+export const getBountyNumber = () => {
+  const numberRef = ref(realtimeDb, 'BountyNumber');
+  onValue(numberRef, (snapshot) => {
+    return snapshot.val();
+  });
+};
+
+//Different method for getting bounty number
+
+export const getBountyNumberNow = get(child(dbRef, 'Bounties'))
+  .then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val().Bounty);
+    } else {
+      console.log('No data available..');
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+  });

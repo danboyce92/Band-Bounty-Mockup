@@ -3,6 +3,7 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { useDispatch } from 'react-redux';
 import { toggleModal } from '../store';
+import { getBountyNumber } from '../firebase/firebase';
 
 import Timer from './Timer';
 import ModalCreate from './ModalCreate';

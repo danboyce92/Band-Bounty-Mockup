@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ref, onValue } from 'firebase/database';
+import { onSnapshot, collection, doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 import { toggleModal } from '../store';
 import Button from './Button';
 import Modal from './Modal';
-import { createBounty } from '../firebase/firebase';
+import { createBountyId } from './BountyIdCreator';
 import { updateBountyNumber } from '../firebase/firebase';
-import { update } from 'firebase/database';
+
+import { bountyIdUpdate } from './BountyIdCreator';
 
 const ModalCreate = () => {
   const [artist, setArtist] = useState('');
   const [city, setCity] = useState('');
+  const [bountyNumber, setBountyNumber] = useState();
 
   const dispatch = useDispatch();
 
@@ -19,10 +24,19 @@ const ModalCreate = () => {
     };
   });
 
+  useEffect(() => {
+    const unsub = onSnapshot(collection(db, 'Number'), (snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        setBountyNumber(doc.data().Bounty);
+      });
+    });
+    return unsub;
+  }, []);
+
   const createBountyButton = () => {
-    // dispatch(toggleModal(false));
-    // createBounty(artist, city);
-    updateBountyNumber();
+    dispatch(toggleModal(false));
+    createBountyId(artist, city, bountyNumber);
+    bountyIdUpdate(bountyNumber);
   };
 
   const handleClose = () => {

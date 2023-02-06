@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useInterval } from './useInterval';
+
+import { setDisplay, stopTimer } from '../store';
 
 const Timer = ({ date }) => {
   let [display, setDisplay] = useState();
   let [isRunning, setIsRunning] = useState(true);
+
+  const dispatch = useDispatch();
+
+  // const { display } = useSelector((state) => {
+  //   return {
+  //     display: state.timer.timerDisplay,
+  //   };
+  // });
+  //Doesn't work because it sets all times to the same time
 
   const deadline = date * 1000;
   const second = 1000;
@@ -18,7 +30,7 @@ const Timer = ({ date }) => {
 
       if (timeSpan <= 0) {
         setDisplay('Bounty has expired');
-        setIsRunning(false);
+        dispatch(stopTimer());
         return;
       }
 

@@ -1,26 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ref, onValue } from 'firebase/database';
-import { onSnapshot, collection, doc, getDoc } from 'firebase/firestore';
+import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
-import { toggleModal } from '../store';
+import { toggleModal, changeArtist, changeCity } from '../store';
 import Button from './Button';
 import Modal from './Modal';
-import { createBountyId } from './BountyIdCreator';
-import { updateBountyNumber } from '../firebase/firebase';
-
-import { bountyIdUpdate } from './BountyIdCreator';
+import { createBountyId, bountyIdUpdate } from './BountyIdCreator';
 
 const ModalCreate = () => {
-  const [artist, setArtist] = useState('');
-  const [city, setCity] = useState('');
   const [bountyNumber, setBountyNumber] = useState();
 
   const dispatch = useDispatch();
 
-  const { toggle } = useSelector((state) => {
+  const { toggle, artist, city } = useSelector((state) => {
     return {
       toggle: state.createModal.toggle,
+      artist: state.createModal.artist,
+      city: state.createModal.city,
     };
   });
 
@@ -82,7 +78,7 @@ const ModalCreate = () => {
             type="text"
             placeholder="Enter Artist name here.."
             onChange={(e) => {
-              setArtist(e.target.value);
+              dispatch(changeArtist(e.target.value));
             }}
           />
 
@@ -92,7 +88,7 @@ const ModalCreate = () => {
             type="text"
             placeholder="Enter City here.."
             onChange={(e) => {
-              setCity(e.target.value);
+              dispatch(changeCity(e.target.value));
             }}
           />
         </form>

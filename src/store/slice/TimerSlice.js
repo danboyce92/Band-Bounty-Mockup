@@ -7,14 +7,11 @@ const TimerSlice = createSlice({
     isRunning: true,
   },
   reducers: {
-    setDisplay(state, action) {
-      state.timerDisplay = action.payload;
-    },
     stopTimer(state, action) {
       state.isRunning = !state.isRunning;
     },
   },
 });
 
-export const { setDisplay, stopTimer } = TimerSlice.actions;
+export const { stopTimer } = TimerSlice.actions;
 export const timerReducer = TimerSlice.reducer;

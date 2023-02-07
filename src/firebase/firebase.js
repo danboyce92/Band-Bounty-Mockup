@@ -1,14 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getDatabase, ref, onValue, set, get, child } from 'firebase/database';
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  setDoc,
-  doc,
-} from 'firebase/firestore';
+import { getDatabase, ref } from 'firebase/database';
+import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -49,12 +43,12 @@ export const dbRef = ref(getDatabase(app));
 
 //Create Bounty with id
 
-const now = new Date();
-const timestamp = now.getTime() / 1000;
-const ninetyDays = 7776000;
-const twentyEightDays = 2419200;
-const twoDays = 172800;
-const expirationTime = timestamp + twoDays;
+// const now = new Date();
+// const timestamp = now.getTime() / 1000;
+// // const ninetyDays = 7776000;
+// // const twentyEightDays = 2419200;
+// const twoDays = 172800;
+// const expirationTime = timestamp + twoDays;
 
 // let data;
 
@@ -81,41 +75,41 @@ const expirationTime = timestamp + twoDays;
 //   const data = snapshot.val();
 // });
 
-//Increments Id
-function writeNewId(bounty) {
-  set(ref(realtimeDb, 'BountyNumber'), {
-    Bounty: bounty,
-  });
-}
+// //Increments Id
+// function writeNewId(bounty) {
+//   set(ref(realtimeDb, 'BountyNumber'), {
+//     Bounty: bounty,
+//   });
+// }
 
-//Writing Bounty number
-export function updateBountyNumber() {
-  const numberRef = ref(realtimeDb, 'BountyNumber');
-  onValue(numberRef, (snapshot) => {
-    return snapshot.val();
-  });
+// //Writing Bounty number
+// export function updateBountyNumber() {
+//   const numberRef = ref(realtimeDb, 'BountyNumber');
+//   onValue(numberRef, (snapshot) => {
+//     return snapshot.val();
+//   });
 
-  writeNewId(getBountyNumber().Bounty + 1);
-}
+//   writeNewId(getBountyNumber().Bounty + 1);
+// }
 
-//Get bountyNumber
-export const getBountyNumber = () => {
-  const numberRef = ref(realtimeDb, 'BountyNumber');
-  onValue(numberRef, (snapshot) => {
-    return snapshot.val();
-  });
-};
+// //Get bountyNumber
+// export const getBountyNumber = () => {
+//   const numberRef = ref(realtimeDb, 'BountyNumber');
+//   onValue(numberRef, (snapshot) => {
+//     return snapshot.val();
+//   });
+// };
 
 //Different method for getting bounty number
 
-export const getBountyNumberNow = get(child(dbRef, 'Bounties'))
-  .then((snapshot) => {
-    if (snapshot.exists()) {
-      console.log(snapshot.val().Bounty);
-    } else {
-      console.log('No data available..');
-    }
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+// export const getBountyNumberNow = get(child(dbRef, 'Bounties'))
+//   .then((snapshot) => {
+//     if (snapshot.exists()) {
+//       console.log(snapshot.val().Bounty);
+//     } else {
+//       console.log('No data available..');
+//     }
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });

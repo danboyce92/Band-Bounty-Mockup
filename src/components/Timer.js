@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useInterval } from './useInterval';
 
-import { setDisplay, stopTimer } from '../store';
+import { stopTimer } from '../store';
 
-const Timer = ({ date }) => {
+const Timer = ({ date, funds, target }) => {
   let [display, setDisplay] = useState();
   let [isRunning, setIsRunning] = useState(true);
 
@@ -23,10 +23,23 @@ const Timer = ({ date }) => {
   const hour = minute * 60;
   const day = hour * 24;
 
+  const dollarRemoved = funds.slice(1);
+  const targetDollarRemoved = target.slice(1);
+  const fundsParsed = parseInt(dollarRemoved);
+  const targetParsed = parseInt(targetDollarRemoved);
+
+  // console.log(parseInt(targetDollarRemoved));
+
   useInterval(
     () => {
       const today = new Date();
       const timeSpan = deadline - today;
+
+      if (fundsParsed > targetParsed) {
+        setDisplay('Bounty target has been met');
+        dispatch(stopTimer());
+        return;
+      }
 
       if (timeSpan <= 0) {
         setDisplay('Bounty has expired');

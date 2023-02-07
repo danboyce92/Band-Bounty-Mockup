@@ -35,6 +35,8 @@ const LiveBounties = () => {
         <div key={bounty.artist} className="ml-4 relative flex flex-col">
           <div
             className={`${bounty.active && 'border-4 bg-green-300'} ${
+              bounty.expiring && 'border-4 bg-rose-500'
+            } ${
               !bounty.active && 'border-4 bg-slate-300'
             } mx-auto my-3  w-11/12 max-w-6xl h-16 rounded-md flex flex-row divide-x-2 divide-slate-400`}
           >
@@ -44,7 +46,14 @@ const LiveBounties = () => {
             <div className="basis-2/12 text-center mt-5">{bounty.target}</div>
             {bounty.expiration && (
               <div className="basis-4/12 text-center mt-5">
-                {<Timer date={bounty.expiration} />} <div id="time-left"></div>
+                {
+                  <Timer
+                    date={bounty.expiration}
+                    funds={bounty.funds}
+                    target={bounty.target}
+                  />
+                }{' '}
+                <div id="time-left"></div>
               </div>
             )}
           </div>

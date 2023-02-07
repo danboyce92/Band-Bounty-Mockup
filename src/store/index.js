@@ -10,7 +10,7 @@ import {
   changeArtist,
   changeCity,
 } from './slice/CreateModalSlice';
-import { timerReducer, setDisplay, stopTimer } from './slice/TimerSlice';
+import { timerReducer, stopTimer } from './slice/TimerSlice';
 
 const store = configureStore({
   reducer: {
@@ -27,6 +27,5 @@ export {
   toggleModal,
   changeArtist,
   changeCity,
-  setDisplay,
   stopTimer,
 };

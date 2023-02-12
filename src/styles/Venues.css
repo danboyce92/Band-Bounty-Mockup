@@ -1,0 +1,16 @@
+
+#venues {
+  font-family: 'Kanit', sans-serif;
+}
+
+#venues-title {
+  font-size: clamp(1.5rem, 10vw, 2.75rem);
+}
+
+#venues-text {
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+}
+
+#venues-list {
+  font-size: clamp(.8rem, 3vw, 1.25rem);
+}

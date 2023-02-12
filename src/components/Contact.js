@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { changeEmail, changeMessage } from '../store';
 
 import Dropdown from './Dropdown';
-import '../index.css';
+import '../styles/Contact.css';
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -34,13 +34,13 @@ const Contact = () => {
   };
 
   return (
-    <div>
-      <div className="w-7/12 min-w-[550px] max-w-[700px] mx-auto mt-24 h-full  bg-gray-200 rounded-md pb-8">
+    <div id="Contact">
+      <div className="w-7/12 min-w-[400px] sm:min-w-[550px] max-w-[40rem] mx-auto mt-24 h-full  bg-gray-200 rounded-md pb-8">
         <div className="p-12">
           <span className="flex justify-center text-[32px] font-bold py-4">
             Contact us
           </span>
-          <form className="px-24">
+          <form className="sm:px-24">
             <div className="py-4">
               <label className="">Email address</label>
               <br />
@@ -76,7 +76,7 @@ const Contact = () => {
               />
             </div>
           </form>
-          <button className=" bg-indigo-600 rounded-xl text-white m-auto px-8 py-3 float-right mb-8">
+          <button className=" bg-indigo-600 rounded-xl text-white px-8 py-3 sm:float-right mb-8">
             Send
           </button>
         </div>

@@ -1,0 +1,23 @@
+#hero-section {
+  font-family: 'Kanit', sans-serif;
+}
+
+#hero-section-top {
+  font-size: clamp(1rem, 10vw, 4.25rem);
+
+}
+
+#hero-section-bottom {
+  font-size: clamp(.75rem, 6vw, 3.5rem);
+
+}
+
+#divider-section {
+  font-size: clamp(.1rem, 4vw, 2rem);
+  font-family: 'Kanit', sans-serif;
+}
+
+#feature-text {
+  font-size: clamp(1rem, 8vw, 2.5rem);
+  font-family: 'Playfair Display', serif;
+}

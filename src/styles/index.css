@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.background {
-    position: relative;
-    display: block;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    
-}
-
 #text-area {
     resize: none;
 }
@@ -27,3 +18,4 @@
     left: calc(50% - 100px);
     top: calc(50% - 100px);
 }
+

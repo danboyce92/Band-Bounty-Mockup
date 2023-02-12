@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from 'firebase/auth';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { auth } from './firebase/firebase';
@@ -14,46 +14,41 @@ import LiveBounties from './components/LiveBounties';
 import Venues from './components/Venues';
 
 function App() {
-  const [ user, setUser ] = useState(null);
-  
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-
     onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-    })
-}, [user])
+      setUser(currentUser);
+    });
+  }, [user]);
 
   return (
     <div className="App relative bg-gray-900 w-full h-full">
       <BrowserRouter>
+        <NavBar user={user} />
 
-      <NavBar user={user}/>
+        <div className=" sm:min-h-[95vh] divide-y-4 divide flex flex-col">
+          <Routes>
+            <Route path="/signin" element={<SignIn />} />
 
-      <div className="min-h-[95vh] divide-y-4 divide flex flex-col">
-        <Routes>
-          
-          <Route path="/signin" element={<SignIn />} />
-          
-          <Route path="/signup" element={<SignUp />} />
-          
-          <Route path="/" element={<LandingPage user={user}/>} />
-            
-          <Route path="/livebounties" element={<LiveBounties />} />
+            <Route path="/signup" element={<SignUp />} />
 
-          <Route path="/venues" element={<Venues />} />
+            <Route path="/" element={<LandingPage user={user} />} />
 
-          <Route path="/contact" element={<Contact />} />
-            
-        </Routes>
-        
-        <div className='mt-auto'>
-        <Footer />
+            <Route path="/livebounties" element={<LiveBounties />} />
+
+            <Route path="/venues" element={<Venues />} />
+
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+
+          <div className="mt-auto">
+            <Footer />
+          </div>
         </div>
-      </div>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
 export default App;

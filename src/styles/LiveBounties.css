@@ -1,0 +1,16 @@
+
+#bounties-legend {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+}
+
+#bounties-list {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+#button {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+}

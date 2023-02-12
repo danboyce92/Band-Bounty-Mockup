@@ -27,7 +27,7 @@ function App() {
       <BrowserRouter>
         <NavBar user={user} />
 
-        <div className=" sm:min-h-[95vh] divide-y-4 divide flex flex-col">
+        <div className="min-h-[95vh] divide-y-4 divide flex flex-col">
           <Routes>
             <Route path="/signin" element={<SignIn />} />
 

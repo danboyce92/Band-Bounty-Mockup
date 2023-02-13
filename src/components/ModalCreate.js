@@ -6,6 +6,7 @@ import { toggleModal, changeArtist, changeCity } from '../store';
 import Button from './Button';
 import Modal from './Modal';
 import { createBountyId, bountyIdUpdate } from './BountyIdCreator';
+import '../styles/index.css';
 
 const ModalCreate = () => {
   const [bountyNumber, setBountyNumber] = useState();
@@ -59,7 +60,10 @@ const ModalCreate = () => {
       onClose={handleClose}
     >
       <>
-        <form className="grid grid-cols-1 grid-rows-10 sm:grid-cols-6 sm:grid-rows-6 h-fit ">
+        <form
+          id="modal-create"
+          className="grid grid-cols-1 grid-rows-10 sm:grid-cols-6 sm:grid-rows-6 h-fit "
+        >
           <div className="col-start-1 row-start-6 sm:col-start-1 sm:col-span-3 sm:row-start-1 sm:row-span-6 border-2 p-6 mb-4 text-center text text-[0.9rem]">
             Until the artist confirms the event, the bounty target will be set
             to $10,000. <hr /> <br />

@@ -35,12 +35,12 @@ const Contact = () => {
 
   return (
     <div id="Contact">
-      <div className="w-7/12 min-w-[400px] sm:min-w-[550px] max-w-[40rem] mx-auto mt-24 h-full  bg-gray-200 rounded-md pb-8">
-        <div className="p-12">
+      <div className="w-7/12 min-w-[320px] sm:min-w-[550px] max-w-[40rem] mx-auto mt-24 h-full  bg-gray-200 rounded-md pb-8">
+        <div className="p-6">
           <span className="flex justify-center text-[32px] font-bold py-4">
             Contact us
           </span>
-          <form className="sm:px-24">
+          <form className="sm:px-36">
             <div className="py-4">
               <label className="">Email address</label>
               <br />
@@ -48,7 +48,7 @@ const Contact = () => {
                 onChange={handleEmailChange}
                 placeholder="Enter your email address here.."
                 type="text"
-                size="35"
+                size="31"
                 className="py-3 px-2 rounded-md"
               />
             </div>
@@ -69,7 +69,7 @@ const Contact = () => {
                 onChange={handleMessageChange}
                 id="text-area"
                 type="text"
-                cols={38}
+                cols={31}
                 rows={4}
                 placeholder="Enter message here.."
                 className="rounded-md px-2 py-3 "

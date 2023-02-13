@@ -31,3 +31,7 @@
     font-size: clamp(.75rem, 3vw, 1rem);
 }
 
+#modal-create {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}

@@ -48,25 +48,25 @@ const Venues = () => {
             className="grid grid-cols-4 grid-rows-12 sm:grid-rows-3"
           >
             <div className="row-start-1 col-span-1 col-start-1 row-span-3 text-white mx-auto">
-              <div className="underline underline-offset-8 text-[24px]">
+              <div className="underline underline-offset-8 text-[19px] sm:text-[24px]">
                 Dublin
               </div>
               {renderedDublinVenues}
             </div>
             <div className="col-span-1 col-start-2 row-start-1 row-span-3 text-white mx-auto">
-              <div className="underline underline-offset-8 text-[24px]">
+              <div className="underline underline-offset-8 text-[19px] sm:text-[24px]">
                 Cork
               </div>
               {renderedCorkVenues}
             </div>
             <div className="col-span-1 col-start-3 row-start-1 row-span-3 text-white mx-auto">
-              <div className="underline underline-offset-8 text-[24px]">
+              <div className="underline underline-offset-8 text-[19px] sm:text-[24px]">
                 Vancouver
               </div>
               {renderedVanVenues}
             </div>
             <div className="col-span-1 col-start-4 row-start-1 row-span-3 text-white mx-auto">
-              <div className="underline underline-offset-8 text-[24px]">
+              <div className="underline underline-offset-8 text-[19px] sm:text-[24px]">
                 Stockholm
               </div>
               {renderedStockholmVenues}

@@ -19,3 +19,15 @@
     top: calc(50% - 100px);
 }
 
+#nav-text {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
+
+#footer-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(.75rem, 3vw, 1rem);
+}
+

@@ -40,7 +40,7 @@ const ModalCreate = () => {
   };
 
   const actionBar = (
-    <div>
+    <div className="mx-auto sm:mx-0">
       <Button
         onClick={createBountyButton}
         primary
@@ -54,13 +54,13 @@ const ModalCreate = () => {
 
   const modalCreate = (
     <Modal
-      className="min-w-1/2 px-8 py-12"
+      className="top-1/4 left-[5%] right-[5%]"
       actionBar={actionBar}
       onClose={handleClose}
     >
       <>
-        <form className="grid grid-cols-6 grid-rows-6 h-full ">
-          <div className="col-start-1 col-span-3 row-start-1 row-span-6 border-2 p-6 text-center text text-[0.9rem]">
+        <form className="grid grid-cols-1 grid-rows-10 sm:grid-cols-6 sm:grid-rows-6 h-fit ">
+          <div className="col-start-1 row-start-6 sm:col-start-1 sm:col-span-3 sm:row-start-1 sm:row-span-6 border-2 p-6 mb-4 text-center text text-[0.9rem]">
             Until the artist confirms the event, the bounty target will be set
             to $10,000. <hr /> <br />
             Each bounty will be given 90 days to be confirmed by the artist.{' '}
@@ -72,9 +72,11 @@ const ModalCreate = () => {
             Start a bounty wherever you wish. If interest exists our team will
             try to locate a suitable venue
           </div>
-          <label className="ml-8 col-start-4 mt-8">Artist</label>
+          <label className="col-start-1 row-start-1 sm:col-start-4 mt-8 ml-8">
+            Artist
+          </label>
           <input
-            className="ml-8 row-start-2 col-start-4  col-span-2 pl-4 py- border-2 border-gray-500 focus:border-black h-3/5 rounded-md"
+            className="col-start-1 row-start-2 sm:row-start-2 sm:col-start-4 sm:col-span-2 pl-4 py-4 ml-8 border-2 border-gray-500 focus:border-black h-3/5 rounded-md"
             type="text"
             placeholder="Enter Artist name here.."
             onChange={(e) => {
@@ -82,9 +84,11 @@ const ModalCreate = () => {
             }}
           />
 
-          <label className="ml-8 col-start-4 row-start-3 mt-8">City</label>
+          <label className="col-start-1 row-start-3 sm:col-start-4 sm:row-start-3 mt-8 ml-8">
+            City
+          </label>
           <input
-            className="ml-8 row-start-4 col-start-4 col-span-2 pl-4 border-2 border-gray-500 focus:border-black h-3/5 rounded-md"
+            className="col-start-1 row-start-4 sm:row-start-4 sm:col-start-4 sm:col-span-2 pl-4 py-4 ml-8 border-2 border-gray-500 focus:border-black h-3/5 rounded-md"
             type="text"
             placeholder="Enter City here.."
             onChange={(e) => {

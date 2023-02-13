@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/index.css';
 
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -6,7 +7,10 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div>
-      <div className=" flex flex-row bg-white justify-center h-10 pt-2">
+      <div
+        id="footer-text"
+        className=" flex flex-row bg-white justify-center h-10 pt-2"
+      >
         <div className="mx-2">bbounty@email.com |</div>
         <div className="mx-2">
           <a href="https://facebook.com">

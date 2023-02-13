@@ -6,6 +6,7 @@ import { toggleModal } from '../store';
 
 import Timer from './Timer';
 import ModalCreate from './ModalCreate';
+import ModalInfo from './ModalInfo';
 import '../styles/LiveBounties.css';
 
 const LiveBounties = () => {
@@ -42,8 +43,8 @@ const LiveBounties = () => {
             className={`${bounty.active && 'border-4 bg-green-300'} ${
               bounty.expiring && 'border-4 bg-rose-500'
             } ${
-              !bounty.active && 'border-4 bg-slate-300'
-            } mx-auto my-3 w-full sm:w-11/12 max-w-6xl sm:h-16 rounded-md flex flex-row divide-x-2 divide-slate-400`}
+              !bounty.active && !bounty.expiring && 'border-4 bg-slate-300'
+            } mx-auto my-3 w-full sm:w-11/12 max-w-6xl  rounded-md flex flex-row divide-x-2 divide-slate-400`}
           >
             <div className="basis-2/12 text-center mt-5">{bounty.artist}</div>
             <div className="basis-2/12 text-center mt-5">{bounty.city}</div>
@@ -78,6 +79,7 @@ const LiveBounties = () => {
       </div>
 
       <ModalCreate />
+      <ModalInfo />
     </div>
   );
 };

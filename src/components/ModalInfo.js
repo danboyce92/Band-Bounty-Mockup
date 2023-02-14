@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import Modal from './Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleInfoModal } from '../store';
 
-const ModalInfo = () => {
-  const [toggle, setToggle] = useState(false);
+const ModalInfo = ({ bounty }) => {
+  const dispatch = useDispatch();
+
+  const { infoToggle } = useSelector((state) => {
+    return {
+      infoToggle: state.infoModal.infoToggle,
+    };
+  });
 
   const handleClose = () => {
-    setToggle(!toggle);
+    dispatch(toggleInfoModal());
   };
 
   const actionBar = (
     <div className="mx-auto sm:mx-0">
-      <Button primary rounded className="px-6 py-2">
+      <Button onClick={handleClose} primary rounded className="px-6 py-2">
         Fund this bounty
       </Button>
     </div>
@@ -24,12 +32,18 @@ const ModalInfo = () => {
       onClose={handleClose}
     >
       <>
-        <div>Hello New component here</div>
+        <div className="grid grid-cols-2 grid-rows-2">
+          <div className="col-start-1 -row-start-1">Logo</div>
+          <div className="col-start-1 row-start-2">Bio</div>
+          <div className="col-start-2 row-start-1">
+            <div className="text-xl">{bounty.artist}</div>
+          </div>
+        </div>
       </>
     </Modal>
   );
 
-  return <>{toggle && modalInfo}</>;
+  return <>{infoToggle && modalInfo}</>;
 };
 
 export default ModalInfo;

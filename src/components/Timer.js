@@ -1,25 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useInterval } from './useInterval';
 import {
   updateBountyColorGreen,
   updateBountyColorRed,
 } from '../firebase/firebase';
 
-import { stopTimer } from '../store';
-
 const Timer = ({ id, date, funds, target }) => {
   let [display, setDisplay] = useState();
   let [isRunning, setIsRunning] = useState(true);
-
-  const dispatch = useDispatch();
-
-  // const { display } = useSelector((state) => {
-  //   return {
-  //     display: state.timer.timerDisplay,
-  //   };
-  // });
-  //Doesn't work because it sets all times to the same time
+  let [time, setTime] = useState(1000);
 
   const deadline = date * 1000;
   const second = 1000;
@@ -41,14 +30,14 @@ const Timer = ({ id, date, funds, target }) => {
 
       if (fundsParsed > targetParsed) {
         setDisplay('Bounty target has been met');
-        dispatch(stopTimer());
+        setIsRunning(false);
         updateBountyColorGreen(id);
         return;
       }
 
       if (timeSpan <= 0) {
         setDisplay('Bounty has expired');
-        dispatch(stopTimer());
+        setIsRunning(false);
         updateBountyColorRed(id);
         return;
       }
@@ -60,48 +49,19 @@ const Timer = ({ id, date, funds, target }) => {
 
       if (days > 0) {
         setDisplay(days + ' days ' + hours + 'hours');
+        setTime(15000);
       }
       if (days <= 0 && hours > 0) {
         setDisplay(hours + ':' + minutes + ':' + seconds);
+        setTime(1000);
       }
       if (hours <= 0 && seconds > 0) {
         setDisplay(minutes + ':' + seconds);
+        setTime(1000);
       }
     },
-    isRunning ? 1000 : null
+    isRunning ? time : null
   );
-
-  // const deadline = date * 1000
-  // const second = 1000;
-  // const minute = second * 60;
-  // const hour = minute * 60;
-  // const day = hour * 24;
-  // let timerId
-
-  // const countDown = () => {
-  //     const today = new Date()
-  //     const timeSpan = deadline - today
-
-  //     if (timeSpan <= 0) {
-  //         timeLeft.innerHTML = "Bounty has expired"
-  //         clearInterval(timerId)
-  //         return
-  //     }
-
-  //     const days = Math.floor(timeSpan / day)
-  //     const hours = Math.floor((timeSpan % day) / hour)
-  //     const minutes = Math.floor((timeSpan % hour) / minute)
-  //     const seconds = Math.floor((timeSpan % minute) / second)
-
-  //     if(days > 0){
-  //         timeLeft.innerHTML = days + ' days ' + hours + 'hours'
-  //     } if (days <= 0 && hours > 0) {
-  //         timeLeft.innerHTML = hours + ':' + minutes + ':' + seconds
-  //     } if (hours <= 0 && seconds > 0) {
-  //         timeLeft.innerHTML = minutes + ':' + seconds
-  //     }
-
-  // }
 
   return <div>{display}</div>;
 };

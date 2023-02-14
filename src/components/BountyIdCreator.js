@@ -9,10 +9,12 @@ export const bountyIdUpdate = async (currentBounty) => {
 
 const now = new Date();
 const timestamp = now.getTime() / 1000;
-// const ninetyDays = 7776000;
-const twentyEightDays = 2419200;
-// const twoDays = 172800;
-const expirationTime = timestamp + twentyEightDays;
+const ninetyDays = 7776000;
+// const thirty = 3024000;
+// const twentyEightDays = 2419200;
+// const fifty = 4492800;
+// const lessThanDay = 82800;
+const expirationTime = timestamp + ninetyDays;
 
 export const createBountyId = async (artist, city, bountyNumber) => {
   //Insert val snapshot here and connect newBountyId to it

@@ -16,14 +16,19 @@ const LiveBounties = () => {
 
   useEffect(() => {
     const unsub = onSnapshot(collection(db, 'Bounties'), (snapshot) => {
-      setBounties(snapshot.docs.map((doc) => doc.data()));
+      setBounties(snapshot.docs.map((doc) => doc));
     });
     return unsub;
   }, []);
 
   return (
     <div>
-      <div className="relative ml-4 flex items-center">
+      <div
+        onClick={() => {
+          console.log(bounties);
+        }}
+        className="relative ml-4 flex items-center"
+      >
         <div
           id="bounties-legend"
           className=" mx-auto my-4 bg-white w-full sm:w-11/12 max-w-6xl sm:h-16 rounded-md flex flex-row divide-x-4 divide-slate-400"
@@ -37,26 +42,37 @@ const LiveBounties = () => {
       </div>
 
       {bounties.map((bounty) => (
-        <div key={bounty.artist} className="ml-4 relative flex flex-col">
+        <div key={bounty.data().artist} className="ml-4 relative flex flex-col">
           <div
             id="bounties-list"
-            className={`${bounty.active && 'border-4 bg-green-300'} ${
-              bounty.expiring && 'border-4 bg-rose-500'
+            className={`${bounty.data().active && 'border-4 bg-green-300'} ${
+              bounty.data().expiring && 'border-4 bg-rose-500'
             } ${
-              !bounty.active && !bounty.expiring && 'border-4 bg-slate-300'
+              !bounty.data().active &&
+              !bounty.data().expiring &&
+              'border-4 bg-slate-300'
             } mx-auto my-3 w-full sm:w-11/12 max-w-6xl  rounded-md flex flex-row divide-x-2 divide-slate-400`}
           >
-            <div className="basis-2/12 text-center mt-5">{bounty.artist}</div>
-            <div className="basis-2/12 text-center mt-5">{bounty.city}</div>
-            <div className="basis-2/12 text-center mt-5">{bounty.funds}</div>
-            <div className="basis-2/12 text-center mt-5">{bounty.target}</div>
-            {bounty.expiration && (
+            <div className="basis-2/12 text-center mt-5">
+              {bounty.data().artist}
+            </div>
+            <div className="basis-2/12 text-center mt-5">
+              {bounty.data().city}
+            </div>
+            <div className="basis-2/12 text-center mt-5">
+              {bounty.data().funds}
+            </div>
+            <div className="basis-2/12 text-center mt-5">
+              {bounty.data().target}
+            </div>
+            {bounty.data().expiration && (
               <div className="basis-4/12 text-center mt-5">
                 {
                   <Timer
-                    date={bounty.expiration}
-                    funds={bounty.funds}
-                    target={bounty.target}
+                    id={bounty.id}
+                    date={bounty.data().expiration}
+                    funds={bounty.data().funds}
+                    target={bounty.data().target}
                   />
                 }{' '}
                 <div id="time-left"></div>

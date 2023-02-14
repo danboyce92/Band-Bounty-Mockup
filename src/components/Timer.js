@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useInterval } from './useInterval';
+import {
+  updateBountyColorGreen,
+  updateBountyColorRed,
+} from '../firebase/firebase';
 
 import { stopTimer } from '../store';
 
-const Timer = ({ date, funds, target }) => {
+const Timer = ({ id, date, funds, target }) => {
   let [display, setDisplay] = useState();
   let [isRunning, setIsRunning] = useState(true);
 
@@ -38,12 +42,14 @@ const Timer = ({ date, funds, target }) => {
       if (fundsParsed > targetParsed) {
         setDisplay('Bounty target has been met');
         dispatch(stopTimer());
+        updateBountyColorGreen(id);
         return;
       }
 
       if (timeSpan <= 0) {
         setDisplay('Bounty has expired');
         dispatch(stopTimer());
+        updateBountyColorRed(id);
         return;
       }
 

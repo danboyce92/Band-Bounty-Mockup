@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
 
-function Modal({ onClose, children, actionBar, className }) {
+function Modal({ onClose, children, actionBar, className, buttonPosition }) {
   useEffect(() => {
     document.body.classList.add('overflow-hidden');
 
@@ -21,7 +21,7 @@ function Modal({ onClose, children, actionBar, className }) {
       >
         <div className="flex flex-col justify-between h-full">
           {children}
-          <div className="flex justify-end">{actionBar}</div>
+          <div className={`flex ${buttonPosition}`}>{actionBar}</div>
         </div>
       </div>
     </div>,

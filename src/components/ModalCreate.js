@@ -58,6 +58,7 @@ const ModalCreate = () => {
       className="top-1/4 left-[5%] right-[5%]"
       actionBar={actionBar}
       onClose={handleClose}
+      buttonPosition="justify-end"
     >
       <>
         <form

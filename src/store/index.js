@@ -21,6 +21,7 @@ import {
   setBountyLogo,
   currentBountyReducer,
 } from './slice/CurrentBountySlice';
+import { changeUser, userSliceReducer } from './slice/UserSlice';
 import { timerReducer, stopTimer } from './slice/TimerSlice';
 
 const store = configureStore({
@@ -30,6 +31,7 @@ const store = configureStore({
     infoModal: infoModalReducer,
     currentBounty: currentBountyReducer,
     timer: timerReducer,
+    user: userSliceReducer,
   },
 });
 
@@ -45,5 +47,6 @@ export {
   changeCurrentBounty,
   setBountyBio,
   setBountyLogo,
+  changeUser,
   stopTimer,
 };

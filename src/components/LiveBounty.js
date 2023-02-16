@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getDoc, doc } from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebase/firebase';
+import { useNavigate } from 'react-router-dom';
 import Timer from './Timer';
 
 import {
@@ -12,11 +13,12 @@ import {
   setBountyLogo,
 } from '../store';
 
-const LiveBounty = ({ bounty }) => {
+const LiveBounty = ({ bounty, user }) => {
   const [confirmButtonToggle, setConfirmButtonToggle] = useState(false);
   const [artist, setArtist] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   let logoLink;
 
@@ -45,6 +47,16 @@ const LiveBounty = ({ bounty }) => {
       dispatch(setBountyBio(docSnap.data().bio));
     } else {
       dispatch(setBountyBio('Bio coming soon!'));
+    }
+  };
+
+  const openBountyButton = () => {
+    if (user) {
+      dispatch(toggleInfoModal());
+      getBandBio();
+      downloadLogo();
+    } else {
+      navigate('/signin');
     }
   };
 
@@ -91,14 +103,7 @@ const LiveBounty = ({ bounty }) => {
             </div>
           )}
           {confirmButtonToggle && (
-            <button
-              onClick={() => {
-                dispatch(toggleInfoModal());
-                getBandBio();
-                downloadLogo();
-              }}
-              className="bg-green-300"
-            >
+            <button onClick={openBountyButton} className="bg-green-300">
               Open Bounty
             </button>
           )}

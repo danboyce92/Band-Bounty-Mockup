@@ -35,12 +35,12 @@ const Contact = () => {
 
   return (
     <div id="Contact">
-      <div className="w-7/12 min-w-[320px] sm:min-w-[550px] max-w-[40rem] mx-auto mt-24 h-full  bg-gray-200 rounded-md pb-8">
-        <div className="p-6">
+      <div className="w-7/12 min-w-[320px] sm:min-w-[550px] max-w-[550px] mx-auto mt-24 h-full  bg-gray-200 rounded-md pb-8">
+        <div className="px-3 sm:p-6">
           <span className="flex justify-center text-[32px] font-bold py-4">
             Contact us
           </span>
-          <form className="sm:px-36">
+          <form className="sm:px-28">
             <div className="py-4">
               <label className="">Email address</label>
               <br />

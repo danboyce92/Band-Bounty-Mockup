@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toggleModal } from '../store';
 import LiveBounty from './LiveBounty';
 
@@ -9,8 +10,9 @@ import ModalInfo from './ModalInfo';
 import ModalCreate from './ModalCreate';
 import '../styles/LiveBounties.css';
 
-const LiveBounties = () => {
+const LiveBounties = ({ user }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { currentBounty } = useSelector((state) => {
     return {
@@ -26,6 +28,14 @@ const LiveBounties = () => {
     });
     return unsub;
   }, []);
+
+  const createBountyButton = () => {
+    if (user) {
+      dispatch(toggleModal(true));
+    } else {
+      navigate('/signin');
+    }
+  };
 
   return (
     <div>
@@ -44,15 +54,13 @@ const LiveBounties = () => {
 
       {bounties.map((bounty) => (
         <div key={bounty.data().artist}>
-          <LiveBounty bounty={bounty} />
+          <LiveBounty bounty={bounty} user={user} />
         </div>
       ))}
 
       <div className="xl:flex xl:justify-center">
         <button
-          onClick={() => {
-            dispatch(toggleModal(true));
-          }}
+          onClick={createBountyButton}
           id="button"
           className="bg-orange-400 mt-4 mb-8 mr-10 float-right xl:float-none py-4 px-8 rounded-xl hover:bg-orange-200"
         >

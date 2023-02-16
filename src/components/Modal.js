@@ -16,9 +16,7 @@ function Modal({ onClose, children, actionBar, className, buttonPosition }) {
         onClick={onClose}
         className="absolute inset-0 bg-gray-300 opacity-80"
       ></div>
-      <div
-        className={`absolute lg:top-1/4 lg:left-1/4 lg:w-1/2 p-10 bg-white rounded-lg ${className}`}
-      >
+      <div className={`absolute p-10 bg-white rounded-lg ${className}`}>
         <div className="flex flex-col justify-between h-full">
           {children}
           <div className={`flex ${buttonPosition}`}>{actionBar}</div>

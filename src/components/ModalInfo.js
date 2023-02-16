@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+
 import Button from './Button';
 import Modal from './Modal';
 import Timer from './Timer';
@@ -9,9 +11,11 @@ import '../styles/infoModal.css';
 const ModalInfo = ({ bounty }) => {
   const dispatch = useDispatch();
 
-  const { infoToggle } = useSelector((state) => {
+  const { infoToggle, bio, logoUrl } = useSelector((state) => {
     return {
       infoToggle: state.infoModal.infoToggle,
+      bio: state.currentBounty.bio,
+      logoUrl: state.currentBounty.logo,
     };
   });
 
@@ -37,10 +41,10 @@ const ModalInfo = ({ bounty }) => {
       <>
         <div className="grid grid-cols-2 grid-rows-5 p-4 border-2 border-slate-300 rounded-md">
           <div id="text" className="col-start-1 -row-start-1 row-span-2 m-auto">
-            Logo
+            <img src={logoUrl} id="logo-img" alt="logo"></img>
           </div>
           <div id="text" className="col-start-1 row-start-3 row-span-3 m-auto">
-            Bio
+            {bio}
           </div>
           <div id="artist" className="col-start-2 row-start-1 mx-auto">
             {bounty.artist}

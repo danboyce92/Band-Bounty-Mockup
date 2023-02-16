@@ -17,6 +17,8 @@ import {
 } from './slice/InfoModalSlice';
 import {
   changeCurrentBounty,
+  setBountyBio,
+  setBountyLogo,
   currentBountyReducer,
 } from './slice/CurrentBountySlice';
 import { timerReducer, stopTimer } from './slice/TimerSlice';
@@ -41,5 +43,7 @@ export {
   toggleInfoModal,
   toggleConfirmButton,
   changeCurrentBounty,
+  setBountyBio,
+  setBountyLogo,
   stopTimer,
 };

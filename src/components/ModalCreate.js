@@ -55,7 +55,7 @@ const ModalCreate = () => {
 
   const modalCreate = (
     <Modal
-      className="top-1/4 left-[5%] right-[5%]"
+      className="top-1/4 left-[5%] right-[5%] lg:top-1/4 lg:left-1/4 lg:w-1/2"
       actionBar={actionBar}
       onClose={handleClose}
       buttonPosition="justify-end"

@@ -4,7 +4,21 @@
 }
 
 #text {
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Lora', serif;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+#text-bio {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+#text-city {
+  font-family: 'Julee', cursive;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+#underline {
+  text-decoration: underline;
   font-weight: 600;
-  font-size: clamp(1rem, 3vw, 1.5rem);
 }

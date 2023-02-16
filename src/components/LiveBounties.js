@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleModal, toggleInfoModal } from '../store';
+import { toggleModal } from '../store';
 import LiveBounty from './LiveBounty';
 
 import ModalInfo from './ModalInfo';

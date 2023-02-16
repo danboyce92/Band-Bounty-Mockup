@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getDoc, doc } from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebase/firebase';
 import Timer from './Timer';
-import ModalInfo from './ModalInfo';
+
 import {
   toggleInfoModal,
   changeCurrentBounty,
@@ -13,17 +13,10 @@ import {
 } from '../store';
 
 const LiveBounty = ({ bounty }) => {
-  // const [currentBounty, setCurrentBounty] = useState();
   const [confirmButtonToggle, setConfirmButtonToggle] = useState(false);
   const [artist, setArtist] = useState('');
 
   const dispatch = useDispatch();
-
-  // const { logoUrl } = useSelector((state) => {
-  //   return {
-  //     logoUrl: state.currentBounty.logo,
-  //   };
-  // });
 
   let logoLink;
 
@@ -34,12 +27,10 @@ const LiveBounty = ({ bounty }) => {
   }
 
   const downloadLogo = () => {
-    // const img = document.getElementById('logo-img');
     const storage = getStorage();
     getDownloadURL(ref(storage, logoLink))
       .then((url) => {
         dispatch(setBountyLogo(url));
-        // img.setAttribute('src', url);
       })
       .catch((error) => {
         console.log(error);
@@ -53,7 +44,6 @@ const LiveBounty = ({ bounty }) => {
     if (docSnap.exists()) {
       dispatch(setBountyBio(docSnap.data().bio));
     } else {
-      //doc.data() will be undefined in this case
       dispatch(setBountyBio('Bio coming soon!'));
     }
   };
@@ -66,8 +56,6 @@ const LiveBounty = ({ bounty }) => {
             dispatch(changeCurrentBounty(bounty.data()));
             setConfirmButtonToggle(!confirmButtonToggle);
             setArtist(bounty.data().artist);
-
-            // dispatch(toggleInfoModal());
           }}
           id="bounties-list"
           className={`${bounty.data().active && 'border-4 bg-green-300'} ${

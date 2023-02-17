@@ -3,6 +3,7 @@ import React from 'react';
 import Button from './Button';
 import Modal from './Modal';
 import Timer from './Timer';
+import { updateFunds } from '../firebase/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleInfoModal } from '../store';
 import '../styles/infoModal.css';
@@ -22,9 +23,17 @@ const ModalInfo = ({ bounty }) => {
     dispatch(toggleInfoModal());
   };
 
+  const fundBountyButton = () => {
+    const integer = parseInt(bounty.funds.slice(1));
+    const newTotal = integer + 50;
+    const newString = `$ ${newTotal.toString()}`;
+    updateFunds(bounty.id, newString);
+    handleClose();
+  };
+
   const actionBar = (
     <div className="mx-auto sm:mx-0">
-      <Button onClick={handleClose} primary rounded className="px-6 py-2">
+      <Button onClick={fundBountyButton} primary rounded className="px-6 py-2">
         Fund this bounty
       </Button>
     </div>

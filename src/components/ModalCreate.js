@@ -10,6 +10,12 @@ import '../styles/index.css';
 
 const ModalCreate = () => {
   const [bountyNumber, setBountyNumber] = useState();
+  const [error, setError] = useState({
+    artist: '',
+    artistField: '',
+    city: '',
+    cityField: '',
+  });
 
   const dispatch = useDispatch();
 
@@ -31,9 +37,39 @@ const ModalCreate = () => {
   }, []);
 
   const createBountyButton = () => {
-    dispatch(toggleModal(false));
-    createBountyId(artist, city, bountyNumber);
-    bountyIdUpdate(bountyNumber);
+    if (artist && city) {
+      dispatch(toggleModal(false));
+      createBountyId(artist, city, bountyNumber);
+      bountyIdUpdate(bountyNumber);
+    }
+
+    //Handle missing fields
+    if (!artist) {
+      const updatedError = {
+        ...error,
+        artist: '* Must enter artist name',
+        artistField: 'bg-red-300',
+      };
+      setError(updatedError);
+    }
+    if (!city) {
+      const updatedError = {
+        ...error,
+        city: '* Must enter a city',
+        cityField: 'bg-red-300',
+      };
+      setError(updatedError);
+    }
+    if (!artist && !city) {
+      const updatedError = {
+        ...error,
+        artist: '* Must enter artist name',
+        artistField: 'bg-red-300',
+        city: '* Must enter a city',
+        cityField: 'bg-red-300',
+      };
+      setError(updatedError);
+    }
   };
 
   const handleClose = () => {
@@ -77,23 +113,23 @@ const ModalCreate = () => {
             Start a bounty wherever you wish. If interest exists our team will
             try to locate a suitable venue
           </div>
-          <label className="col-start-1 row-start-1 sm:col-start-4 mt-8 ml-8">
-            Artist
+          <label className="col-span-2 col-start-1 row-start-1 sm:col-start-4 mt-8 ml-8 flex flex-col">
+            Artist <div className="text-red-400 ">{error.artist}</div>
           </label>
+
           <input
-            className="col-start-1 row-start-2 sm:row-start-2 sm:col-start-4 sm:col-span-2 pl-4 py-4 ml-8 border-2 border-gray-500 focus:border-black h-3/5 rounded-md"
+            className={`${error.artistField} col-start-1 row-start-2 sm:row-start-2 sm:col-start-4 sm:col-span-2 pl-4 py-4 ml-8 border-2 border-gray-500 focus:border-black h-3/5 rounded-md`}
             type="text"
             placeholder="Enter Artist name here.."
             onChange={(e) => {
               dispatch(changeArtist(e.target.value));
             }}
           />
-
-          <label className="col-start-1 row-start-3 sm:col-start-4 sm:row-start-3 mt-8 ml-8">
-            City
+          <label className="col-span-2 col-start-1 row-start-3 sm:col-start-4 sm:row-start-3 mt-8 ml-8">
+            City <div className="text-red-400">{error.city}</div>
           </label>
           <input
-            className="col-start-1 row-start-4 sm:row-start-4 sm:col-start-4 sm:col-span-2 pl-4 py-4 ml-8 border-2 border-gray-500 focus:border-black h-3/5 rounded-md"
+            className={`${error.cityField} col-start-1 row-start-4 sm:row-start-4 sm:col-start-4 sm:col-span-2 pl-4 py-4 ml-8 border-2 border-gray-500 focus:border-black h-3/5 rounded-md"`}
             type="text"
             placeholder="Enter City here.."
             onChange={(e) => {

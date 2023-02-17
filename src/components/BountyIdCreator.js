@@ -27,5 +27,6 @@ export const createBountyId = async (artist, city, bountyNumber) => {
     funds: '$0',
     target: '$10000',
     expiration: expirationTime,
+    id: stringed,
   });
 };

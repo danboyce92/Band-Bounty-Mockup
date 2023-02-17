@@ -33,3 +33,8 @@ export const updateBountyColorRed = async (id) => {
   const bountyRef = doc(db, 'Bounties', id);
   setDoc(bountyRef, { expiring: true }, { merge: true });
 };
+
+export const updateFunds = async (id, funds) => {
+  const bountyRef = doc(db, 'Bounties', id);
+  setDoc(bountyRef, { funds }, { merge: true });
+};

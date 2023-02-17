@@ -102,11 +102,13 @@ const LiveBounty = ({ bounty, user }) => {
               }
             </div>
           )}
-          {confirmButtonToggle && (
-            <button onClick={openBountyButton} className="bg-green-300">
-              Open Bounty
-            </button>
-          )}
+          {confirmButtonToggle &&
+            !bounty.data().active &&
+            !bounty.data().expiring && (
+              <button onClick={openBountyButton} className="bg-green-300">
+                Open Bounty
+              </button>
+            )}
         </div>
       </div>
     </div>

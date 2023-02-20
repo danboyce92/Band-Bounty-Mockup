@@ -58,11 +58,11 @@ const LiveBounties = ({ user }) => {
         </div>
       ))}
 
-      <div className="xl:flex xl:justify-center">
+      <div className="flex justify-center">
         <button
           onClick={createBountyButton}
           id="button"
-          className="bg-orange-400 mt-4 mb-8 mr-10 float-right xl:float-none py-4 px-8 rounded-xl hover:bg-orange-200"
+          className="bg-orange-400 mt-4 mb-8 py-4 px-8 rounded-xl hover:bg-orange-200"
         >
           Create Bounty
         </button>

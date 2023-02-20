@@ -3,6 +3,9 @@ import {
   contactReducer,
   changeEmail,
   changeMessage,
+  setErrorEmail,
+  setErrorReason,
+  setErrorMessage,
 } from './slice/ContactUsSlice';
 import {
   createModalReducer,
@@ -48,5 +51,8 @@ export {
   setBountyBio,
   setBountyLogo,
   changeUser,
+  setErrorEmail,
+  setErrorReason,
+  setErrorMessage,
   stopTimer,
 };

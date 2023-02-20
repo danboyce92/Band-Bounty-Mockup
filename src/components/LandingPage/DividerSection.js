@@ -5,6 +5,8 @@ import LivePic2 from '../../gig4.webp';
 import '../../styles/LandingPage.css';
 
 const Divider = ({ user }) => {
+  //Creates a link to signUp page
+  //Only active if not signed in
   let signupLinkTo;
   let signupLinkClass;
 
@@ -33,7 +35,7 @@ const Divider = ({ user }) => {
           <div className=" col-span-3 col-start-6 row-start-1 row-span-2  text-white text-center mb-4">
             <Link to={signupLinkTo} className={signupLinkClass}>
               Sign up here
-            </Link>{' '}
+            </Link>
             and launch the bounty for your favourite artists today
           </div>
 

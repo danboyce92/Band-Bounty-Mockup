@@ -10,14 +10,14 @@ This project was created with create-react-app so after downloading the files an
 
 ---
 
-classnames
-firebase
-react-icons
-react-redux
-@reduxjs/toolkit
-react-router-dom
-react-tsparticles
-tsparticles
+classnames </br>
+firebase </br>
+react-icons </br>
+react-redux </br>
+@reduxjs/toolkit </br>
+react-router-dom </br>
+react-tsparticles </br>
+tsparticles </br>
 
 ---
 

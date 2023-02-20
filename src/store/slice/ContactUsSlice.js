@@ -21,19 +21,19 @@ const ContactUsSlice = createSlice({
     changeMessage(state, action) {
       state.message = action.payload;
     },
-    setErrorEmail(state, action) {
+    setErrorEmail(state) {
       state.error.email = '* Must enter email address';
       state.error.emailField = 'bg-red-300';
     },
-    setErrorReason(state, action) {
+    setErrorReason(state) {
       state.error.reason = '* Please select reason';
       state.error.reasonField = 'bg-red-300';
     },
-    setErrorMessage(state, action) {
+    setErrorMessage(state) {
       state.error.message = '* Please enter message here';
       state.error.messageField = 'bg-red-300';
     },
-    resetPage(state, action) {
+    resetPage(state) {
       state.email = '';
       state.message = '';
       state.error.email = '';

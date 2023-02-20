@@ -21,7 +21,7 @@ const LiveBounty = ({ bounty, user }) => {
   const navigate = useNavigate();
 
   let logoLink;
-
+  //This loads the current artists logo from database if it exists yet
   if (bounty.data().link) {
     logoLink = `${bounty.data().link}.png`;
   } else {
@@ -39,6 +39,7 @@ const LiveBounty = ({ bounty, user }) => {
       });
   };
 
+  //This pulls the current artists bio from database
   const getBandBio = async () => {
     const docRef = doc(db, 'Bios', artist);
     const docSnap = await getDoc(docRef);

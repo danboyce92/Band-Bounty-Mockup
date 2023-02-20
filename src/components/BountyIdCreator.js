@@ -1,6 +1,7 @@
 import { setDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 
+//Increases the newest bounties Id
 export const bountyIdUpdate = async (currentBounty) => {
   await setDoc(doc(db, 'Number', 'ctfrdjqpUj7a1GEafkZu'), {
     Bounty: currentBounty + 1,
@@ -10,15 +11,10 @@ export const bountyIdUpdate = async (currentBounty) => {
 const now = new Date();
 const timestamp = now.getTime() / 1000;
 const ninetyDays = 7776000;
-// const thirty = 3024000;
-// const twentyEightDays = 2419200;
-// const fifty = 4492800;
-// const lessThanDay = 82800;
 const expirationTime = timestamp + ninetyDays;
 
+//Creates the new bounty and saves it to the database
 export const createBountyId = async (artist, city, bountyNumber) => {
-  //Insert val snapshot here and connect newBountyId to it
-
   let stringed = bountyNumber.toString();
 
   await setDoc(doc(db, 'Bounties', stringed), {

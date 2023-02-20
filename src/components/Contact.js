@@ -26,6 +26,7 @@ const Contact = () => {
     };
   });
 
+  //selection is the chosen option in the dropdown menu
   const [selection, setSelection] = useState(null);
 
   const options = [

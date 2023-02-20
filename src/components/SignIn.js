@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 import '../styles/Auth.css';
 
-// import Link from './Link'
-
 const SignIn = () => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');

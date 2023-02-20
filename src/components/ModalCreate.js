@@ -10,6 +10,7 @@ import '../styles/index.css';
 
 const ModalCreate = () => {
   const [bountyNumber, setBountyNumber] = useState();
+  //Controls error messaging if input fields are left empty
   const [error, setError] = useState({
     artist: '',
     artistField: '',

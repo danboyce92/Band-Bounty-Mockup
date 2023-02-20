@@ -7,10 +7,10 @@ const InfoModalSlice = createSlice({
     confirmButtonToggle: false,
   },
   reducers: {
-    toggleInfoModal(state, action) {
+    toggleInfoModal(state) {
       state.infoToggle = !state.infoToggle;
     },
-    toggleConfirmButton(state, action) {
+    toggleConfirmButton(state) {
       state.confirmButtonToggle = !state.confirmButtonToggle;
     },
   },

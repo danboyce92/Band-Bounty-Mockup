@@ -21,8 +21,6 @@ const Timer = ({ id, date, funds, target }) => {
   const fundsParsed = parseInt(dollarRemoved);
   const targetParsed = parseInt(targetDollarRemoved);
 
-  // console.log(parseInt(targetDollarRemoved));
-
   useInterval(
     () => {
       const today = new Date();

@@ -9,7 +9,7 @@ const CreateModalSlice = createSlice({
     bountyNumber: null,
   },
   reducers: {
-    toggleModal(state, action) {
+    toggleModal(state) {
       state.toggle = !state.toggle;
     },
     changeArtist(state, action) {

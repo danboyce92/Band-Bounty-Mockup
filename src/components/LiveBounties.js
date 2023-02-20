@@ -22,6 +22,7 @@ const LiveBounties = ({ user }) => {
 
   const [bounties, setBounties] = useState([]);
 
+  //Saves the databases current list of bounties to the state bounties
   useEffect(() => {
     const unsub = onSnapshot(collection(db, 'Bounties'), (snapshot) => {
       setBounties(snapshot.docs.map((doc) => doc));

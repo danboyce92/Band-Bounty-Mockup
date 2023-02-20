@@ -41,7 +41,7 @@ const ModalInfo = ({ bounty }) => {
 
   const modalInfo = (
     <Modal
-      className="top-[20%] left-[5%] right-[5%] sm:left-[15%] sm:right-[15%] xl:top-[15%] xl:left-[20%] xl:right-[20%]"
+      className="top-[5%] left-[5%] right-[5%] sm:left-[15%] sm:right-[15%] xl:top-[15%] xl:left-[20%] xl:right-[20%]"
       actionBar={actionBar}
       onClose={handleClose}
       buttonPosition="justify-center pt-8"

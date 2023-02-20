@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div>
+    <div className="">
       <div
         id="footer-text"
-        className=" flex flex-row bg-white justify-center h-10 pt-2"
+        className="flex flex-row bg-white justify-center h-10 pt-2"
       >
         <div className="mx-2">bbounty@email.com |</div>
         <div className="mx-2">

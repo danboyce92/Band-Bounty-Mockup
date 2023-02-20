@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Band Bounty
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Band Bounty is a platform for crowd-sourced event organizing. It aims to give fans of music an opportunity to raise money for a concert from an artist of their choosing in their area.
 
-## Available Scripts
+### This website is not real and was solely created to add to my web-developer portfolio.
 
-In the project directory, you can run:
+### How to install and run the project.
 
-### `npm start`
+This project was created with create-react-app so after downloading the files and installing the dependencies you should be all good to go with npm start. The following dependencies are necessary for the project to function properly:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+classnames
+firebase
+react-icons
+react-redux
+@reduxjs/toolkit
+react-router-dom
+react-tsparticles
+tsparticles
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+if trying to run the project on your own device make sure you install all of them.
 
-### `npm run build`
+### Motivation for this project and what I have learned.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The main motivation for this project was to add something unique to my portfolio. I wanted everything in my portfolio to be mine and not a carbon copy of a tutorial.
+The original intent for this project was to have web3 capabilities. I wanted the payment function to connect to a metamask wallet but decided to focus on the web2 fundamentals. Maybe I'll try to refactor it in the future.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Like all the projects I have worked through since I started, I have encountered a lot of unforseen issues that have been as equally painful as they have been rewarding after finally resolving them.
+One of the biggest issues to stand out to me from this project has to be dealing with React state and async requests. Seeing a console.log populate a variable with data from my firebase database but the variable acts as though it was empty was a real head-scratcher.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This was my first project using redux toolkit. Although I still made use of state in some areas, I got a lot of practice using useDispatch and useSelector, the only thing I feel I was missing was making use of AsyncThunk. Involving async requests in my redux store will be a priority in my next project.
 
-### `npm run eject`
+### Features I had hoped to implement
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+As mentioned previously, I had originally aimed at making this project on the blockchain. At present after you create an account and try to fund a bounty the only thing that happens is the bounty you tried to fund has it's total fund increase by $50. In my original plan it was to be connected to an Ethereum test-net and you could pay test-eth to fund them. In the end I decided it was better for me to spend some time in isolation focusing on the front-end web2 side of things before mixing it all up.
+This led to learning a lot of the features available in firebase (which probably wouldn't be used in the web3 version)

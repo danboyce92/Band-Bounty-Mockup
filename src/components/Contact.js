@@ -88,7 +88,7 @@ const Contact = () => {
                 onChange={handleEmailChange}
                 placeholder="Enter your email address here.."
                 type="text"
-                size="31"
+                size="30"
                 className={`${error.emailField} py-3 px-2 rounded-md`}
               />
             </div>

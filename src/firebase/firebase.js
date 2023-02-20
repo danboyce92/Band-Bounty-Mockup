@@ -2,7 +2,13 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getDatabase, ref } from 'firebase/database';
-import { getFirestore, setDoc, doc } from 'firebase/firestore';
+import {
+  getFirestore,
+  setDoc,
+  doc,
+  addDoc,
+  collection,
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -37,4 +43,12 @@ export const updateBountyColorRed = async (id) => {
 export const updateFunds = async (id, funds) => {
   const bountyRef = doc(db, 'Bounties', id);
   setDoc(bountyRef, { funds }, { merge: true });
+};
+
+export const sendMessageDb = async (email, reason, message) => {
+  await addDoc(collection(db, 'Messages'), {
+    email,
+    reason,
+    message,
+  });
 };

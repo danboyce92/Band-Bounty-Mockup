@@ -6,6 +6,7 @@ import {
   setErrorEmail,
   setErrorReason,
   setErrorMessage,
+  resetPage,
 } from './slice/ContactUsSlice';
 import {
   createModalReducer,
@@ -54,5 +55,6 @@ export {
   setErrorEmail,
   setErrorReason,
   setErrorMessage,
+  resetPage,
   stopTimer,
 };

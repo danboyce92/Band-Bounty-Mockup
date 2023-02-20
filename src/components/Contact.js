@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   changeEmail,
   changeMessage,
   setErrorEmail,
   setErrorReason,
   setErrorMessage,
+  resetPage,
 } from '../store';
 
 import Dropdown from './Dropdown';
+import { sendMessageDb } from '../firebase/firebase';
 import '../styles/Contact.css';
 
 const Contact = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { error, email, message } = useSelector((state) => {
     return {
@@ -59,6 +63,12 @@ const Contact = () => {
     if (!message) {
       dispatch(setErrorMessage());
     }
+    if (!email || !selection || !message) {
+      return;
+    }
+    sendMessageDb(email, selection, message);
+    navigate('/');
+    dispatch(resetPage());
   };
 
   return (
@@ -72,7 +82,7 @@ const Contact = () => {
             <div className="py-4">
               <label className="">Email address</label>
               <div className="text-red-300">{error.email}</div>
-              <br />
+
               <input
                 onChange={handleEmailChange}
                 placeholder="Enter your email address here.."
@@ -96,7 +106,6 @@ const Contact = () => {
             <div className="py-4">
               <label>Message</label>
               <div className="text-red-300">{error.message}</div>
-              <br />
               <textarea
                 onChange={handleMessageChange}
                 id="text-area"

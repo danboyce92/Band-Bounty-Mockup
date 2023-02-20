@@ -33,6 +33,16 @@ const ContactUsSlice = createSlice({
       state.error.message = '* Please enter message here';
       state.error.messageField = 'bg-red-300';
     },
+    resetPage(state, action) {
+      state.email = '';
+      state.message = '';
+      state.error.email = '';
+      state.error.emailField = '';
+      state.error.reason = '';
+      state.error.reasonField = '';
+      state.error.message = '';
+      state.error.messageField = '';
+    },
   },
 });
 
@@ -42,5 +52,6 @@ export const {
   setErrorEmail,
   setErrorReason,
   setErrorMessage,
+  resetPage,
 } = ContactUsSlice.actions;
 export const contactReducer = ContactUsSlice.reducer;

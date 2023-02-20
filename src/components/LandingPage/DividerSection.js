@@ -36,6 +36,7 @@ const Divider = ({ user }) => {
             <Link to={signupLinkTo} className={signupLinkClass}>
               Sign up here
             </Link>
+            {` `}
             and launch the bounty for your favourite artists today
           </div>
 

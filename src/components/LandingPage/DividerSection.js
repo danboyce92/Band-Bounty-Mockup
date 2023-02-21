@@ -20,7 +20,7 @@ const Divider = ({ user }) => {
 
   return (
     <div id="divider-section">
-      <div className=" w-full bg-gray-900 grid grid-rows-7 grid-cols-1 sm:grid-rows-7 sm:grid-cols-4 gap-4 mt-6">
+      <div className="w-full bg-gray-900 grid grid-rows-7 grid-cols-1 sm:grid-rows-7 sm:grid-cols-4 gap-4 mt-6">
         <div className="h-full w-full row-span-4 sm:col-span-2 sm:row-span-6 col-start-1 row-start-1">
           <div className="h-full w-full bg-gray-900 top-0 left-0 opacity-50 z-5">
             <img
@@ -31,7 +31,7 @@ const Divider = ({ user }) => {
           </div>
         </div>
 
-        <div className="col-span-1 row-start-5 sm:col-span-2 sm:row-span-6 sm:col-start-3 divide-y-2 divide-solid divide-gray-400 my-auto">
+        <div className="px-4 col-span-1 row-start-5 sm:col-span-2 sm:row-span-6 sm:col-start-3 divide-y-2 divide-solid divide-gray-400 my-auto">
           <div className=" text-white text-center mb-4">
             <Link to={signupLinkTo} className={signupLinkClass}>
               Sign up here
@@ -62,7 +62,7 @@ const Divider = ({ user }) => {
           />
         </div>
 
-        <div className="col-span-1 col-start-1 row-start-5 sm:col-span-2 sm:row-span-6 sm:col-start-1 divide-y-2 divide-solid divide-gray-400 my-auto">
+        <div className="px-4 col-span-1 col-start-1 row-start-5 sm:col-span-2 sm:row-span-6 sm:col-start-1 divide-y-2 divide-solid divide-gray-400 my-auto">
           <div className=" col-span-2 col-start-1 row-start-1 row-span-2 text-white text-center mb-4">
             Keep watch on your upcoming events as some will have VIP tickets
             available too

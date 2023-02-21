@@ -12,7 +12,7 @@ import {
 const Venues = () => {
   return (
     <div id="venues">
-      <div className="h-screen  bg-[url('../venues.jpg')] bg-cover bg-no-repeat bg-bottom max-w-7xl mx-auto">
+      <div className="h-full  bg-[url('../venues.jpg')] bg-cover bg-no-repeat bg-bottom max-w-7xl mx-auto">
         <div className="h-full w-full bg-gray-900 top-0 left-0 opacity-90 z-1 ">
           <div
             id="venues-title"

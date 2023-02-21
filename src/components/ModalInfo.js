@@ -41,7 +41,7 @@ const ModalInfo = ({ bounty }) => {
 
   const modalInfo = (
     <Modal
-      className="top-[5%] left-[5%] right-[5%] sm:left-[10%] sm:right-[10%] xl:top-[15%] xl:bottom-[15%] xl:left-[25%] xl:right-[25%]"
+      className="top-[5%] left-[5%] right-[5%] sm:left-[10%] sm:right-[10%] xl:top-[15%] xl:bottom-[15%] xl:mx-auto xl:max-w-[900px]"
       actionBar={actionBar}
       onClose={handleClose}
       buttonPosition="justify-center pt-8"
@@ -49,7 +49,7 @@ const ModalInfo = ({ bounty }) => {
       <>
         <div className="grid grid-cols-2 grid-rows-10 sm:grid-rows-5 p-4 border-2 border-slate-300 rounded-md">
           <div className="col-span-2 col-start-1 row-start-6 sm:row-start-1 sm:col-span-1 sm:row-span-2 m-auto py-4">
-            <img src={logoUrl} id="logo-img" alt="logo" className=""></img>
+            <img src={logoUrl} id="logo-img" alt="logo"></img>
           </div>
           <div
             id="text-bio"

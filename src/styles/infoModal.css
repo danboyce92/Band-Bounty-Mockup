@@ -10,7 +10,7 @@
 
 #text-bio {
   font-family: 'Lora', serif;
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1vw, 1.5rem);
 }
 
 #text-city {

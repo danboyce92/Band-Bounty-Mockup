@@ -20,7 +20,7 @@ const Hero = () => {
 
           <div
             id="hero-section-bottom"
-            className="h-full w-full top-0 left-0 col-span-2 row-span-2 col-start-4 row-start-4 text-white text-[42px] text-center"
+            className="h-full w-full top-0 left-0 col-span-2 row-span-2 col-start-4 row-start-4 text-white text-[42px] text-center z-20"
           >
             <br />
             The internet's first crowd sourcing live event coordinating platform

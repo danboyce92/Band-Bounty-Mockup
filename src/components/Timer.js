@@ -49,11 +49,11 @@ const Timer = ({ id, date, funds, target }) => {
         setDisplay(days + ' Days ' + hours + ' Hours');
         setTime(15000);
       }
-      if (days < 0 && hours > 0) {
+      if (days <= 0 && hours > 0) {
         setDisplay(hours + ':' + minutes + ':' + seconds);
         setTime(1000);
       }
-      if (hours < 0 && seconds > 0) {
+      if (hours <= 0 && seconds > 0) {
         setDisplay(minutes + ':' + seconds);
         setTime(1000);
       }

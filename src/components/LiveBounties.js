@@ -43,7 +43,7 @@ const LiveBounties = ({ user }) => {
       <div className="relative ml-4 flex items-center">
         <div
           id="bounties-legend"
-          className=" mx-auto my-4 bg-white w-full sm:w-11/12 max-w-6xl sm:h-16 rounded-md flex flex-row divide-x-4 divide-slate-400"
+          className=" mx-auto my-4 bg-white w-full sm:w-11/12 max-w-6xl sm:h-16 rounded-md flex flex-row divide-x-4 divide-slate-400 cursor-pointer"
         >
           <div className="basis-2/12 text-center mt-5">Artist</div>
           <div className="basis-2/12 text-center mt-5">City</div>

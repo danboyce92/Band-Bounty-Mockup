@@ -76,7 +76,7 @@ const LiveBounty = ({ bounty, user }) => {
           } ${
             !bounty.data().active &&
             !bounty.data().expiring &&
-            'border-4 bg-slate-300'
+            'border-4 bg-slate-300 cursor-pointer'
           } mx-auto my-3 w-full sm:w-11/12 max-w-6xl  rounded-md flex flex-row divide-x-2 divide-slate-400`}
         >
           <div className="basis-2/12 text-center mt-5">

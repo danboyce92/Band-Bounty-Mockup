@@ -12,7 +12,7 @@ import {
 
 import Dropdown from './Dropdown';
 import { sendMessageDb } from '../firebase/firebase';
-import '../styles/Contact.css';
+// import '../styles/Contact.css';
 
 const Contact = () => {
   const dispatch = useDispatch();
